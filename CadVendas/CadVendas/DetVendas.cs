@@ -16,5 +16,10 @@ namespace CadVendas
         {
             InitializeComponent();
         }
+
+        private void nudQuantidade_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
