@@ -951,6 +951,14 @@ namespace prjVendas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public pc_itemvendaRow FindBynumvendacodpro(int numvenda, int codpro) {
+                return ((pc_itemvendaRow)(this.Rows.Find(new object[] {
+                            numvenda,
+                            codpro})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
                 pc_itemvendaDataTable cln = ((pc_itemvendaDataTable)(base.Clone()));
                 cln.InitVars();
@@ -983,6 +991,11 @@ namespace prjVendas {
                 base.Columns.Add(this.columnquantidade);
                 this.columnprecounit = new global::System.Data.DataColumn("precounit", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnprecounit);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnnumvenda,
+                                this.columncodpro}, true));
+                this.columnnumvenda.AllowDBNull = false;
+                this.columncodpro.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2331,12 +2344,7 @@ namespace prjVendas {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int numvenda {
                 get {
-                    try {
-                        return ((int)(this[this.tablepc_itemvenda.numvendaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'numvenda\' in table \'pc_itemvenda\' is DBNull.", e);
-                    }
+                    return ((int)(this[this.tablepc_itemvenda.numvendaColumn]));
                 }
                 set {
                     this[this.tablepc_itemvenda.numvendaColumn] = value;
@@ -2347,12 +2355,7 @@ namespace prjVendas {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int codpro {
                 get {
-                    try {
-                        return ((int)(this[this.tablepc_itemvenda.codproColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'codpro\' in table \'pc_itemvenda\' is DBNull.", e);
-                    }
+                    return ((int)(this[this.tablepc_itemvenda.codproColumn]));
                 }
                 set {
                     this[this.tablepc_itemvenda.codproColumn] = value;
@@ -2411,30 +2414,6 @@ namespace prjVendas {
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK__pc_itemve__numve__117F9D94"]);
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsnumvendaNull() {
-                return this.IsNull(this.tablepc_itemvenda.numvendaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetnumvendaNull() {
-                this[this.tablepc_itemvenda.numvendaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IscodproNull() {
-                return this.IsNull(this.tablepc_itemvenda.codproColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetcodproNull() {
-                this[this.tablepc_itemvenda.codproColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3869,19 +3848,9 @@ SELECT codcli, nome, endereco, cidade, bairro, uf, cep, telefone, datanasc FROM 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<int> numvenda, global::System.Nullable<int> codpro, global::System.Nullable<int> quantidade, global::System.Nullable<double> precounit) {
-            if ((numvenda.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((int)(numvenda.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((codpro.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(codpro.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
+        public virtual int Insert(int numvenda, int codpro, global::System.Nullable<int> quantidade, global::System.Nullable<double> precounit) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(numvenda));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(codpro));
             if ((quantidade.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[2].Value = ((int)(quantidade.Value));
             }

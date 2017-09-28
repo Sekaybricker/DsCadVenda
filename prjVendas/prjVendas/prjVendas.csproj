@@ -51,6 +51,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>db_00718_14_A_1_2015DataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="db_00718_14_A_1_2015DataSet1.cs">
+      <DependentUpon>db_00718_14_A_1_2015DataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="db_00718_14_A_1_2015DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
