@@ -4432,6 +4432,20 @@ SELECT codpro, descricao, quantidade, precounit FROM pc_produto WHERE (codpro = 
             tableMapping.ColumnMappings.Add("obs", "obs");
             tableMapping.ColumnMappings.Add("nome", "nome");
             this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM pc_venda\r\nWHERE        (numvenda = @numvenda)";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@numvenda", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "numvenda", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO pc_venda\r\n                         (datavenda, dataentrega, codcli, o" +
+                "bs)\r\nVALUES        (@datavenda,@dataentrega,@codcli,@obs)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@datavenda", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "datavenda", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dataentrega", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "dataentrega", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@codcli", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "codcli", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@obs", global::System.Data.SqlDbType.NText, 1073741823, global::System.Data.ParameterDirection.Input, 0, 0, "obs", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4475,6 +4489,35 @@ SELECT codpro, descricao, quantidade, precounit FROM pc_produto WHERE (codpro = 
             db_00718_14_A_1_2015DataSet1.pc_vendaDataTable dataTable = new db_00718_14_A_1_2015DataSet1.pc_vendaDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(db_00718_14_A_1_2015DataSet1.pc_vendaDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(db_00718_14_A_1_2015DataSet1 dataSet) {
+            return this.Adapter.Update(dataSet, "pc_venda");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
         }
     }
     
@@ -4891,6 +4934,8 @@ SELECT codpro, descricao, quatidade, valor FROM produtoDS WHERE (codpro = @codpr
         
         private pc_produtoTableAdapter _pc_produtoTableAdapter;
         
+        private pc_vendaTableAdapter _pc_vendaTableAdapter;
+        
         private produtoDSTableAdapter _produtoDSTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
@@ -4955,6 +5000,20 @@ SELECT codpro, descricao, quatidade, valor FROM produtoDS WHERE (codpro = @codpr
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
+        public pc_vendaTableAdapter pc_vendaTableAdapter {
+            get {
+                return this._pc_vendaTableAdapter;
+            }
+            set {
+                this._pc_vendaTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
         public produtoDSTableAdapter produtoDSTableAdapter {
             get {
                 return this._produtoDSTableAdapter;
@@ -4995,6 +5054,10 @@ SELECT codpro, descricao, quatidade, valor FROM produtoDS WHERE (codpro = @codpr
                             && (this._pc_produtoTableAdapter.Connection != null))) {
                     return this._pc_produtoTableAdapter.Connection;
                 }
+                if (((this._pc_vendaTableAdapter != null) 
+                            && (this._pc_vendaTableAdapter.Connection != null))) {
+                    return this._pc_vendaTableAdapter.Connection;
+                }
                 if (((this._produtoDSTableAdapter != null) 
                             && (this._produtoDSTableAdapter.Connection != null))) {
                     return this._produtoDSTableAdapter.Connection;
@@ -5019,6 +5082,9 @@ SELECT codpro, descricao, quatidade, valor FROM produtoDS WHERE (codpro = @codpr
                     count = (count + 1);
                 }
                 if ((this._pc_produtoTableAdapter != null)) {
+                    count = (count + 1);
+                }
+                if ((this._pc_vendaTableAdapter != null)) {
                     count = (count + 1);
                 }
                 if ((this._produtoDSTableAdapter != null)) {
@@ -5050,6 +5116,15 @@ SELECT codpro, descricao, quatidade, valor FROM produtoDS WHERE (codpro = @codpr
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._pc_produtoTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._pc_vendaTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.pc_venda.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._pc_vendaTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -5097,6 +5172,14 @@ SELECT codpro, descricao, quatidade, valor FROM produtoDS WHERE (codpro = @codpr
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._pc_vendaTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.pc_venda.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._pc_vendaTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._pc_itemvendaTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.pc_itemvenda.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -5136,6 +5219,14 @@ SELECT codpro, descricao, quatidade, valor FROM produtoDS WHERE (codpro = @codpr
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._pc_itemvendaTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._pc_vendaTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.pc_venda.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._pc_vendaTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -5209,6 +5300,11 @@ SELECT codpro, descricao, quatidade, valor FROM produtoDS WHERE (codpro = @codpr
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
+            if (((this._pc_vendaTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._pc_vendaTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
+                        "tring.");
+            }
             if (((this._produtoDSTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._produtoDSTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
@@ -5271,6 +5367,15 @@ SELECT codpro, descricao, quatidade, valor FROM produtoDS WHERE (codpro = @codpr
                     if (this._pc_produtoTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._pc_produtoTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._pc_produtoTableAdapter.Adapter);
+                    }
+                }
+                if ((this._pc_vendaTableAdapter != null)) {
+                    revertConnections.Add(this._pc_vendaTableAdapter, this._pc_vendaTableAdapter.Connection);
+                    this._pc_vendaTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._pc_vendaTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._pc_vendaTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._pc_vendaTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._pc_vendaTableAdapter.Adapter);
                     }
                 }
                 if ((this._produtoDSTableAdapter != null)) {
@@ -5351,6 +5456,10 @@ SELECT codpro, descricao, quatidade, valor FROM produtoDS WHERE (codpro = @codpr
                 if ((this._pc_produtoTableAdapter != null)) {
                     this._pc_produtoTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._pc_produtoTableAdapter]));
                     this._pc_produtoTableAdapter.Transaction = null;
+                }
+                if ((this._pc_vendaTableAdapter != null)) {
+                    this._pc_vendaTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._pc_vendaTableAdapter]));
+                    this._pc_vendaTableAdapter.Transaction = null;
                 }
                 if ((this._produtoDSTableAdapter != null)) {
                     this._produtoDSTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._produtoDSTableAdapter]));
