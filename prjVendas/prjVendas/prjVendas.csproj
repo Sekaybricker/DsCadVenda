@@ -51,6 +51,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>db_00718_14_A_1_2015DataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="db_00718_14_A_1_2015DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>db_00718_14_A_1_2015DataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="frmCadProduto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +88,17 @@
     </None>
     <None Include="db_00718_14_A_1_2015DataSet.xss">
       <DependentUpon>db_00718_14_A_1_2015DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="db_00718_14_A_1_2015DataSet1.xsc">
+      <DependentUpon>db_00718_14_A_1_2015DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="db_00718_14_A_1_2015DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>db_00718_14_A_1_2015DataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="db_00718_14_A_1_2015DataSet1.xss">
+      <DependentUpon>db_00718_14_A_1_2015DataSet1.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
