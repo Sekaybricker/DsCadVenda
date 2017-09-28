@@ -55,6 +55,7 @@
             this.btnPesquisar.TabIndex = 21;
             this.btnPesquisar.Text = "&Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // btnCancelar
             // 
@@ -64,6 +65,7 @@
             this.btnCancelar.TabIndex = 20;
             this.btnCancelar.Text = "&Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnGravar
             // 
@@ -73,6 +75,7 @@
             this.btnGravar.TabIndex = 17;
             this.btnGravar.Text = "&Gravar";
             this.btnGravar.UseVisualStyleBackColor = true;
+            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
             // btnExcluir
             // 
@@ -82,6 +85,7 @@
             this.btnExcluir.TabIndex = 19;
             this.btnExcluir.Text = "&Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnAlterar
             // 
@@ -91,6 +95,7 @@
             this.btnAlterar.TabIndex = 18;
             this.btnAlterar.Text = "&Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnIncluir
             // 
@@ -100,11 +105,12 @@
             this.btnIncluir.TabIndex = 16;
             this.btnIncluir.Text = "&Incluir";
             this.btnIncluir.UseVisualStyleBackColor = true;
+            this.btnIncluir.Click += new System.EventHandler(this.btnIncluir_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(73, 77);
+            this.label1.Location = new System.Drawing.Point(64, 80);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 13);
             this.label1.TabIndex = 22;
@@ -113,7 +119,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(196, 77);
+            this.label2.Location = new System.Drawing.Point(196, 81);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(27, 13);
             this.label2.TabIndex = 23;
@@ -122,7 +128,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(293, 78);
+            this.label3.Location = new System.Drawing.Point(281, 81);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 13);
             this.label3.TabIndex = 24;
@@ -131,7 +137,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(440, 78);
+            this.label4.Location = new System.Drawing.Point(398, 81);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(46, 13);
             this.label4.TabIndex = 25;
@@ -140,7 +146,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(307, 345);
+            this.label5.Location = new System.Drawing.Point(412, 332);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(31, 13);
             this.label5.TabIndex = 26;
@@ -156,7 +162,7 @@
             // 
             // nudQtd
             // 
-            this.nudQtd.Location = new System.Drawing.Point(242, 78);
+            this.nudQtd.Location = new System.Drawing.Point(229, 78);
             this.nudQtd.Maximum = new decimal(new int[] {
             1000000000,
             0,
@@ -169,23 +175,27 @@
             // 
             // MtPreco
             // 
-            this.MtPreco.Location = new System.Drawing.Point(334, 78);
+            this.MtPreco.Location = new System.Drawing.Point(322, 78);
+            this.MtPreco.Mask = "$###,##";
             this.MtPreco.Name = "MtPreco";
-            this.MtPreco.Size = new System.Drawing.Size(100, 20);
+            this.MtPreco.Size = new System.Drawing.Size(63, 20);
             this.MtPreco.TabIndex = 30;
+            this.MtPreco.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.MtPreco_MaskInputRejected);
             // 
             // MtTotal
             // 
-            this.MtTotal.Location = new System.Drawing.Point(344, 342);
+            this.MtTotal.Location = new System.Drawing.Point(450, 329);
+            this.MtTotal.Mask = "$###,##";
             this.MtTotal.Name = "MtTotal";
-            this.MtTotal.Size = new System.Drawing.Size(100, 20);
+            this.MtTotal.Size = new System.Drawing.Size(68, 20);
             this.MtTotal.TabIndex = 31;
             // 
             // MtSubtotal
             // 
-            this.MtSubtotal.Location = new System.Drawing.Point(492, 78);
+            this.MtSubtotal.Location = new System.Drawing.Point(450, 78);
+            this.MtSubtotal.Mask = "$###,##";
             this.MtSubtotal.Name = "MtSubtotal";
-            this.MtSubtotal.Size = new System.Drawing.Size(100, 20);
+            this.MtSubtotal.Size = new System.Drawing.Size(68, 20);
             this.MtSubtotal.TabIndex = 32;
             // 
             // DetVendas
@@ -210,6 +220,7 @@
             this.Controls.Add(this.btnIncluir);
             this.Name = "DetVendas";
             this.Size = new System.Drawing.Size(614, 372);
+            this.Load += new System.EventHandler(this.DetVendas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudQtd)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
